@@ -4,9 +4,15 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-if (environment.production) {
-  enableProdMode();
-}
+declare var device: any;
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+document.addEventListener('deviceready', () => {
+
+  if (environment.production) {
+    enableProdMode();
+  }
+
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.log(err));
+}, false);
+

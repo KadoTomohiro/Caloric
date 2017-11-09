@@ -3,6 +3,8 @@
   <li><a routerLink="page2">page2</a></li>
 </ul>
 
-{{device| json}}
+<button (click)="takePicture()">Take Picture</button>
+{{uri}}
+<img [src]="uri" alt="">
 
 <router-outlet></router-outlet>

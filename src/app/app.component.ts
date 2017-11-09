@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { CordovaService } from './cordova.service';
+import { CordovaService } from './cordova/cordova.service';
+import { CameraService } from './cordova/camera.service';
 
 @Component({
   selector: 'cal-root',
@@ -8,10 +9,18 @@ import { CordovaService } from './cordova.service';
 })
 export class AppComponent {
   device: any;
-  constructor(private cordova: CordovaService) {
-    this.cordova.device.getDevice()
-      .then(device => {
-        this.device = device;
-      });
+  uri: string;
+
+  constructor(private cordova: CordovaService, private camera: CameraService) {
+    this.cordova.onDeviceReady.subscribe(() => {
+      console.log('device is leady');
+    });
+    this.device = this.cordova.getDevice();
+  }
+
+  takePicture(): void {
+    this.camera.getPicture().then(uri => {
+      this.uri = uri;
+    });
   }
 }

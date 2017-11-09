@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { CordovaService } from './cordova.service';
 
-describe('CordovaService', () => {
+describe('CordovaServiceRxService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [CordovaService]

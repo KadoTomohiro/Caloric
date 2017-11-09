@@ -6,7 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
-import { CordovaService } from './cordova.service';
+import { CordovaService } from './cordova/cordova.service';
+import { CameraService } from './cordova/camera.service';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CordovaService } from './cordova.service';
     AppRoutingModule
   ],
   providers: [
-    CordovaService
+    CordovaService,
+    CameraService
   ],
   bootstrap: [AppComponent]
 })
