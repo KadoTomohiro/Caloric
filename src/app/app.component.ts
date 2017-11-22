@@ -10,6 +10,7 @@ import { CameraService } from './cordova/camera.service';
 export class AppComponent {
   device: any;
   uri: string;
+  calorie: number;
 
   constructor(private cordova: CordovaService, private camera: CameraService) {
     this.cordova.onDeviceReady.subscribe(() => {
@@ -20,7 +21,15 @@ export class AppComponent {
 
   takePicture(): void {
     this.camera.getPicture().then(uri => {
-      this.uri = uri;
-    });
+        console.log(uri);
+        this.uri = uri;
+      },
+      err => {
+        console.log(err);
+      });
+  }
+
+  send() {
+    this.calorie = Math.floor(Math.random() * 100);
   }
 }

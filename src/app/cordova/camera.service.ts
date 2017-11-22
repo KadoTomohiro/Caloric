@@ -1,6 +1,8 @@
 import { Inject, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
+declare var navigator: any;
+
 
 @Injectable()
 export class CameraService {
@@ -13,7 +15,7 @@ export class CameraService {
   };
 
   constructor(@Inject(DOCUMENT) private document: any) {
-    this.camera = this.document.navigator.camera;
+    this.camera = navigator.camera;
   }
 
   getPicture(option: CameraOptions = this.defaultOption): Promise<string> {

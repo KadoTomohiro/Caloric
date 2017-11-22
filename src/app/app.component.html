@@ -4,7 +4,12 @@
 </ul>
 
 <button (click)="takePicture()">Take Picture</button>
+<button (click)="send()">Send</button>
+
 {{uri}}
-<img [src]="uri" alt="">
+
+<p *ngIf="calorie != 0">{{calorie}}kcal!</p>
+
+<img [src]="uri" alt="" *ngIf="uri">
 
 <router-outlet></router-outlet>

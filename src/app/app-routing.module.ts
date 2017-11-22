@@ -5,7 +5,7 @@ import { Page2Component } from './page2/page2.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'page1', pathMatch: 'full'
+    path: '', redirectTo: '/page1', pathMatch: 'full'
   },
   {
     path: 'page1', component: Page1Component
@@ -16,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
